@@ -47,18 +47,19 @@ This project was built as part of an assignment for AltSchool Africa showcasing 
 
 ## Project Structure
 
+```bash
 src/
 │
+├── assets/ # images
 ├── components/ # Shared components (TodoList, TodoDetail, Modal, etc.)
-├── features/todos/ # Todo feature modules (hooks, API functions)
+   ├── ui/ # ShadCN UI components
 ├── hooks/ # Custom React hooks
-├── lib/ # Utility libs (e.g., queryClient, API config)
+├── lib/ # Utility libs (e.g., queryClient, consumed API, API config)
 ├── pages/ # Page-level route components
-├── routes/ # Route configurations
-├── ui/ # ShadCN UI components
 ├── App.jsx
 └── main.jsx
 
+```
 ---
 
 ## Setup Instruction
