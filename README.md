@@ -17,7 +17,7 @@ This project was built as part of an assignment for AltSchool Africa showcasing 
 
 ### Live Demo
 
-🔗 [View Insta-Spot Live on Netlify](https://todo-app-dun-alpha.vercel.app/)
+🔗 [View Insta-Spot Live on Vercel](https://todo-app-dun-alpha.vercel.app/)
 
 ---
 
