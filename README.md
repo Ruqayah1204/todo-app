@@ -1,13 +1,151 @@
-# React + Vite
+# 📝 Todo App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project Description
 
-Currently, two official plugins are available:
+**TodoApp** is a modern and accessible task management application buikd with **React 19**, **Tanstack Query**, and **Vite**. It allows user to create, view, update, delete, and filter todos with a sleek UI and smooth user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Screenshot
+![Todo-AppScreenshot](./src/assets/screenshot-1.png);
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# todo-app
+## 🔍 Project Overview
+
+The app simulates real world scenarios with features such as client-side pagination, detailed task views, and persistent data caching using **localStorage**. It emphasizes accessibility, responsiveness, and error handling. 
+
+This project was built as part of an assignment for AltSchool Africa showcasing both technical capability and attention to UX, accessibility and performance.
+
+### Live Demo
+
+🔗 [View Insta-Spot Live on Netlify]()
+
+---
+
+## 🚀 Features
+
+- ✅ View paginated list of todos (10 per page)
+- ✅ View detailed todo info via nested route
+- ✅ Create, edit, and delete todos
+- ✅ Filter todos by status: All / Completed / In Progress / Not Completed
+- ✅ Search todos by title
+- ✅ Error Boundary and 404 fallback
+- ✅ Persistent cache using `localforage`
+- ✅ Mobile friendly
+
+---
+
+## Tech Stack
+
+- **React 19+**
+- **React Router v7+**
+- **TanStack Query** – data fetching and caching
+- **ShadCN / Radix UI / Tailwind CSS** – UI components and styling
+- **localforage** – persistent client-side storage
+- **React Error Boundary** – error handling
+
+---
+
+## Project Structure
+
+src/
+│
+├── components/ # Shared components (TodoList, TodoDetail, Modal, etc.)
+├── features/todos/ # Todo feature modules (hooks, API functions)
+├── hooks/ # Custom React hooks
+├── lib/ # Utility libs (e.g., queryClient, API config)
+├── pages/ # Page-level route components
+├── routes/ # Route configurations
+├── ui/ # ShadCN UI components
+├── App.jsx
+└── main.jsx
+
+---
+
+## Setup Instruction
+
+### 1. Clone the Repository
+
+```bash
+ git clone https://github.com/Ruqayah1204/todo-app.git
+
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+
+```
+### 3. Start development server
+
+```bash
+npm run dev
+
+```
+
+## Scripts & Command
+
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Run dev server           |
+| `npm run build`   | Build app for production |
+| `npm run preview` | Preview production build |
+
+---
+
+## API Usage
+
+Tasks are fetched from :
+
+- GET /todos – List todos (paginated)
++ GET /todos/:id – View single todo
+- POST /todos – Create todo
++ PATCH /todos/:id – Edit todo
+- DELETE /todos/:id – Delete todo
+
+
+---
+
+## 🧠 Architecture Decisions
+
+- **TanStack Query** for cache management and async logic
+- **localforage + persistQueryClient** to enable client-side persistence
+- **ShadCN** for accessible and reusable UI components
+- **Component-driven design** for scalability
+- **Semantic HTML + ARIA** to meet accessibility standards
+
+---
+
+## 📸 Screenshots
+
+| 🖥️ Desktop View                  | 📱 Mobile View                 |
+| -------------------------------- | ------------------------------ |
+| ![Desktop](./src/assets/screenshot-1.png) | ![Mobile](./src/assets/screenshot-2.png) |
+| ![Desktop](./src/assets/screenshot-4.png) | ![Mobile](./src/assets/screenshot-3.png) |
+| ![Desktop](./src/assets/screenshot-5.png) |  
+
+
+---
+
+## 🌱 Future Improvements
+
+- [x] Implement offline storage with Dexie.js and IndexedDB
+- [x] Add user authentication
+- [x] Dark mode toggle
+
+
+---
+
+## 👨🏽‍💻 Author
+
+- **[Salaudeen Rukayat Temitope](https://github.com/Ruqayah1204)**
+
+
+## 🙏 Acknowledgements
+
+Special thanks to:
+
+- **AltSchool Africa** – for providing a strong foundation in frontend development
+- **[Mr. Oluwasetemi Ojo](https://github.com/Oluwasetemi)** – our supportive instructor for the Tinyuka Frontend track
+
+---
