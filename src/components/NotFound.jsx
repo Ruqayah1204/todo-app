@@ -8,7 +8,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <main role="main" aria-labelledBy="not-found-page-heading">
+    <main role="main" aria-labelledby="not-found-page-heading">
       <section className="min-h-screen flex items-center justify-center py-6">
         <Card className="w-full max-w-2xl font-inter">
           <CardContent className="flex flex-col justify-center text-center gap-4 p-6">

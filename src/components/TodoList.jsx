@@ -142,7 +142,7 @@ const TodoList = () => {
       </Card>
       <div className="flex justify-center items-center gap-4">
         <Button
-          className="bg-blue-secondary"
+          className="bg-blue-secondary hover:bg-blue-secondary/90"
           aria-label="Previous Page"
           onClick={() => setPage((prev) => prev - 1)}
           disabled={page === 1}
@@ -153,7 +153,7 @@ const TodoList = () => {
           Page:{page} of {totalPages}
         </p>
         <Button
-          className="bg-blue-secondary"
+          className="bg-blue-secondary hover:bg-blue-secondary/90"
           aria-label="Next Page"
           onClick={() => setPage((prev) => prev + 1)}
           disabled={page === totalPages}

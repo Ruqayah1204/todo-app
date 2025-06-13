@@ -45,6 +45,7 @@ function Modal({ task, onSubmit }) {
                 name="description"
                 defaultValue={task.description}
                 aria-label="Edit todo description"
+                placeholder="Enter description"
               />
             </div>
 

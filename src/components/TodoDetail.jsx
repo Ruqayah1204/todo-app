@@ -45,7 +45,7 @@ const TodoDetail = () => {
   };
 
   const statusColorMap = {
-    IN_PROGRESS: "bg-orange-500/50",
+    IN_PROGRESS: "bg-chart-5/50",
     DONE: "bg-green-500/50",
     TODO: "bg-chart-1/50",
   };
