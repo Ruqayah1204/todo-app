@@ -113,7 +113,7 @@ const TodoList = () => {
           {isLoading && <SkeletonLoading />}
 
           <ul role="list" className="px-4">
-            {paginatedList.length === 0  ? (
+            {paginatedList.length === 0 && (!isLoading) ? (
               <li className="p-2 text-gray-500">No task found.</li>
             ) : (
               paginatedList.map((task) => (
@@ -140,6 +140,23 @@ const TodoList = () => {
           </ul>
         </CardContent>
       </Card>
+      <div className="flex gap-2 flex-wrap justify-center">
+        {Array.from({ length: totalPages }, (value, index) => index + 1).map((pageNum) => (
+          <Button
+            key={pageNum}
+            variant={page === pageNum ? "default" : "outline"}
+            className={`px-3 ${
+              page === pageNum
+                ? "bg-blue-secondary text-white hover:bg-blue-secondary/90"
+                : ""
+            }`}
+            onClick={() => setPage(pageNum)}
+          >
+            {pageNum}
+          </Button>
+        ))}
+      </div>
+
       <div className="flex justify-center items-center gap-4">
         <Button
           className="bg-blue-secondary hover:bg-blue-secondary/90"
