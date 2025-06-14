@@ -56,7 +56,6 @@ const TodoDetail = () => {
   //   throw new Error("Something went wrong in Home!");
   // }
 
-
   return (
     <main role="main" aria-labelledby="todo-detail-heading">
       <section className="min-h-screen flex items-center justify-center py-6">
@@ -75,7 +74,17 @@ const TodoDetail = () => {
             <p className="text-gray-500 italic">
               {data.description || "No description available"}
             </p>
-            <p className={`${statusColorMap[data.status]} p-2 rounded-lg`} aria-live="polite">
+            {data.status === "DONE" ? (
+              <p>
+                Task completed at {new Date(data.createdAt).toLocaleString()}
+              </p>
+            ) : (
+              <p>Task added on: {new Date(data.createdAt).toLocaleString()}</p>
+            )}
+            <p
+              className={`${statusColorMap[data.status]} p-2 rounded-lg`}
+              aria-live="polite"
+            >
               {data.status.replace("_", " ").toUpperCase()}
             </p>
 

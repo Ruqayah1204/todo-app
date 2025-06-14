@@ -125,9 +125,9 @@ export const ConfirmModal = ({ handleClick }) => {
   );
 };
 
-export function CreateTaskModal({ onSubmit }) {
+export function CreateTaskModal({onOpen, open, onSubmit }) {
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpen}>
       <DialogTrigger asChild>
         <Button className="bg-blue-primary hover:bg-blue-primary/90 self-end" type="submit">
           <Plus/>Add Task
@@ -147,6 +147,7 @@ export function CreateTaskModal({ onSubmit }) {
                 name="name"
                 placeholder="Enter new task"
                 aria-label="Add task title"
+                required
               />
             <Textarea name="description" placeholder="Enter description"/>
             </div>
@@ -156,14 +157,12 @@ export function CreateTaskModal({ onSubmit }) {
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <DialogClose asChild>
               <Button
                 type="submit"
                 className="bg-blue-primary hover:bg-blue-primary/90"
               >
                 Submit
               </Button>
-            </DialogClose>
           </DialogFooter>
         </form>
       </DialogContent>

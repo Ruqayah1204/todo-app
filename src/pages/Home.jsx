@@ -2,10 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import TodoList from "../components/TodoList";
 import { useCreateTask } from "../hooks/useTodoList";
 import { CreateTaskModal } from "../components/Modal";
+import { useState } from "react";
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
 
-  const {mutate: createTodo} = useCreateTask();
+  const { mutate: createTodo } = useCreateTask();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,11 +20,14 @@ const Home = () => {
       data: {
         name: newTask,
         description,
-        status: "TODO"
+        status: "TODO",
       },
     });
-    console.log("Data id", );
+    console.log("Data id");
+
+    setOpen(false);
   };
+  
   // ---TESTING ERROR BOUNDARY---
   // if () {
   //   throw new Error("Something went wrong in Home!");
@@ -40,7 +45,11 @@ const Home = () => {
             >
               Todo App
             </h1>
-            <CreateTaskModal onSubmit={handleSubmit} />
+            <CreateTaskModal
+              onSubmit={handleSubmit}
+              onOpen={setOpen}
+              open={open}
+            />
             <TodoList />
           </CardContent>
         </Card>
