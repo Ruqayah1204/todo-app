@@ -5,7 +5,7 @@
 **TodoApp** is a modern and accessible task management application buikd with **React 19**, **Tanstack Query**, and **Vite**. It allows user to create, view, update, delete, and filter todos with a sleek UI and smooth user experience.
 
 ## Screenshot
-![Todo-AppScreenshot](./src/assets/screenshot-1.png);
+![Todo-App Screenshot](./src/assets/screenshot-1.png);
 
 ---
 
@@ -17,7 +17,7 @@ This project was built as part of an assignment for AltSchool Africa showcasing 
 
 ### Live Demo
 
-🔗 [View Insta-Spot Live on Vercel](https://todo-app-dun-alpha.vercel.app/)
+🔗 [View Todo-App Live on Vercel](https://todo-app-dun-alpha.vercel.app/)
 
 ---
 
@@ -60,6 +60,9 @@ src/
 └── main.jsx
 
 ```
+
+> ### **NB:** The url path for the Error Boundary page is ***/test-error***	 and you can also check the 404 page with any url path (eg. todo-app/{add any path}).
+
 ---
 
 ## Setup Instruction
