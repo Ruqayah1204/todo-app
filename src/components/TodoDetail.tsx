@@ -7,27 +7,27 @@ import { ArrowLeft } from "lucide-react";
 import Modal from "./Modal";
 import { useUpdateTask } from "../hooks/useTodoList";
 
-const TodoDetail = () => {
+function TodoDetail() {
   const { mutate: updateTask } = useUpdateTask();
 
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const { data, isLoading, error } = useTaskById(id);
 
   if (isLoading) return <SkeletonLoading />;
   if (error) return <p>Error: {error.message}</p>;
+  if (!data) return <p>Task not found</p>;
 
   const handleGoBack = () => navigate(-1);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const description = formData.get("description");
-    const status = formData.get("status");
+    const formData = new FormData(e.currentTarget);
+    const title = formData.get("name") as string;
+    const description = formData.get("description") as string;
+    const completed = formData.get("status") === "DONE";
 
-    // if (!numericId) {
     if (!data.id) {
       console.error("Todo ID is missing");
       return;
@@ -36,19 +36,20 @@ const TodoDetail = () => {
     updateTask({
       id: data.id,
       data: {
-        name,
+        title,
         description,
-        status,
+        completed,
       },
     });
     console.log("Data id", typeof data.id, data.id);
   };
 
-  const statusColorMap = {
+  const statusColorMap: Record<string, string> = {
     IN_PROGRESS: "bg-chart-5/50",
     DONE: "bg-green-500/50",
     TODO: "bg-chart-1/50",
   };
+
 
   // ---TESTING ERROR BOUNDARY---
 
@@ -56,6 +57,7 @@ const TodoDetail = () => {
   //   throw new Error("Something went wrong in Home!");
   // }
 
+  
   return (
     <main role="main" aria-labelledby="todo-detail-heading">
       <section className="min-h-screen flex items-center justify-center py-6">

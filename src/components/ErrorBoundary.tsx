@@ -1,7 +1,15 @@
 import { Button } from "./ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-function ErrorFallback({ error }) {
+interface ErrorProps {
+  message: string;
+}
+
+interface ErrorFallbackProps {
+  error: ErrorProps;
+}
+
+function ErrorFallback({ error }: ErrorFallbackProps) {
   return (
     <main role="main" aria-labelledby="error-page-heading">
       <section className="min-h-screen flex items-center justify-center py-6">

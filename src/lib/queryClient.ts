@@ -5,14 +5,16 @@ import localforage from "localforage";
 
 const queryClient = new QueryClient({
     defaultOptions: {
-        staleTime: 1000 * 60 * 5,
-        gcTime: 1000 * 60 * 60 * 24,
+        queries: {
+            staleTime: 1000 * 60 * 5,
+            gcTime: 1000 * 60 * 60 * 24,
+        }
     }
 })
 
 const localStoragePersister = createAsyncStoragePersister({
     storage: localforage,
-    key:"TODO_LIST",
+    key: "TODO_LIST",
 })
 
 persistQueryClient({

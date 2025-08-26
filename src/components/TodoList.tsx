@@ -16,16 +16,16 @@ import {
 import { Label } from "@/components/ui/label";
 import { ConfirmModal } from "./Modal";
 
-const TodoList = () => {
-  const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+function TodoList() {
+  const [page, setPage] = useState<number>(1);
+  const [filter, setFilter] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const ITEMS_PER_PAGE = 10;
 
   const { data: tasks, isLoading, isError, error } = useTaskList();
   const deleteTask = useDeleteTaskById();
 
-  const handleDeleteTask = (id) => {
+  const handleDeleteTask = (id: string) => {
     deleteTask.mutate(id);
     console.log("deleted items", id);
   };
@@ -52,13 +52,13 @@ const TodoList = () => {
     return filterResult;
   }, [filter, tasks, searchQuery]);
 
-  const handleFilteredChange = (value) => {
+  const handleFilteredChange = (value: string) => {
     setFilter(value);
     console.log(value);
     setPage(1);
   };
 
-  const handleSearchQuery = (e) => {
+  const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
     console.log(e.target.value);
     setPage(1);
@@ -127,7 +127,7 @@ const TodoList = () => {
                       checked={task.status === "DONE"}
                       className="data-[state=checked]:bg-green-500 data-[state=checked]:text-white"
                       aria-label={`${task.name} completed`}
-                      readOnly
+                      // readOnly
                     />
                     <Link to={`/task/${task.id}`} className="line-clamp-1">
                       {task.name}

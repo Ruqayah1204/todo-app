@@ -1,3 +1,3 @@
-export default function Testpage(){
+export default function Testpage() {
     throw new Error("I crashed on purpose");
 }

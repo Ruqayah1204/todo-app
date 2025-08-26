@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { ArrowLeft } from "lucide-react";
 
-const NotFound = () => {
+function NotFound() {
   const navigate = useNavigate();
 
   return (

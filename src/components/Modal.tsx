@@ -3,7 +3,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
+  // DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -16,7 +16,15 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea"
 
-function Modal({ task, onSubmit }) {
+
+import { Task } from "../lib/todoApi";
+
+interface ModalProps {
+  task: Task;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+function Modal({ task, onSubmit }: ModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -92,7 +100,12 @@ function Modal({ task, onSubmit }) {
 
 export default Modal;
 
-export const ConfirmModal = ({ handleClick }) => {
+
+interface ConfirmModalProps {
+  handleClick: () => void;
+}
+
+export function ConfirmModal({ handleClick }: ConfirmModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -125,7 +138,13 @@ export const ConfirmModal = ({ handleClick }) => {
   );
 };
 
-export function CreateTaskModal({onOpen, open, onSubmit }) {
+interface CreateTaskModalProps {
+  open: boolean;
+  onOpen: (open: boolean) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+export function CreateTaskModal({ onOpen, open, onSubmit }: CreateTaskModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpen}>
       <DialogTrigger asChild>
